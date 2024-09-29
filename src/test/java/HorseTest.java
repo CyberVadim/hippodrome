@@ -4,13 +4,14 @@ import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class HorseTest {
     Double randomDouble = Horse.getRandomDouble(1,25);
     Double negativeRandomDouble = Horse.getRandomDouble(-1,-25);
     @Test
-    public void nullName() {
+    void nullName() {
         String expectedMessage = "Name cannot be null.";
         assertThrows(IllegalArgumentException.class, () -> new Horse(null, randomDouble, randomDouble));
         try {
